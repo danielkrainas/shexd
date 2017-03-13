@@ -1,38 +1,38 @@
-# Shex Registry
+# Shexd
 
-[![License](https://img.shields.io/badge/license-Unlicense-blue.svg?style=flat)](UNLICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/danielkrainas/shexd/registry)](https://goreportcard.com/report/github.com/danielkrainas/shexd/registry) [![Docker Hub](https://img.shields.io/docker/pulls/dakr/shexdr.svg?style=flat)](https://hub.docker.com/r/dakr/shexdr/)
+[![License](https://img.shields.io/badge/license-Unlicense-blue.svg?style=flat)](UNLICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/danielkrainas/shexd)](https://goreportcard.com/report/github.com/danielkrainas/shexd) [![Docker Hub](https://img.shields.io/docker/pulls/dakr/shexd.svg?style=flat)](https://hub.docker.com/r/dakr/shexd/)
 
-Shex Registry is a backend Shex API server implementation.
+Shex registry service daemon. 
 
 ## Installation
 
-> $ go get github.com/danielkrainas/shexd/registry
+> $ go get github.com/danielkrainas/shexd
 
 ## Usage
 
-> $ shexr [command] <config_path>
+> $ shexd [command] <config_path>
 
-Most commands require a configuration path provided as an argument or in the `SHEXR_CONFIG_PATH` environment variable. 
+Most commands require a configuration path provided as an argument or in the `SHEXD_CONFIG_PATH` environment variable. 
 
 ### API mode
 
 This is the primary mode for the Shex Registry. It hosts the HTTP API server.
 
-> $ shexr serve <config_path>
+> $ shexd serve <config_path>
 
 **Example** - with the default config:
 
-> $ shexr serve ./config.default.yml
+> $ shexd serve ./config.default.yml
 
 ## Configuration
 
-A configuration file is *required* for Shex Registry but environment variables can be used to override configuration. A configuration file can be specified as a parameter or with the `SHEXR_CONFIG_PATH` environment variable. 
+A configuration file is *required* for Shex Registry but environment variables can be used to override configuration. A configuration file can be specified as a parameter or with the `SHEXD_CONFIG_PATH` environment variable. 
 
-All configuration environment variables are prefixed by `SHEXR_` and the paths are separated by an underscore(`_`). Some examples:
+All configuration environment variables are prefixed by `SHEXD_` and the paths are separated by an underscore(`_`). Some examples:
 
-- `SHEXR_LOGGING_LEVEL=warn`
-- `SHEXR_HTTP_ADDR=localhost:2345`
-- `SHEXR_STORAGE_INMEMORY=true`
+- `SHEXD_LOGGING_LEVEL=warn`
+- `SHEXD_HTTP_ADDR=localhost:2345`
+- `SHEXD_STORAGE_INMEMORY=true`
 
 A default configuration file is included: `/config.default.yml` and a `/config.local.yml` has already been added to gitignore to be used for local testing or development.
 
