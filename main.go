@@ -10,22 +10,10 @@ import (
 	"github.com/danielkrainas/gobag/cmd"
 	"github.com/danielkrainas/gobag/context"
 
-	_ "github.com/danielkrainas/shexd/cmd/channels"
-	_ "github.com/danielkrainas/shexd/cmd/games"
-	_ "github.com/danielkrainas/shexd/cmd/mods"
-	_ "github.com/danielkrainas/shexd/cmd/profiles"
-	//_ "github.com/danielkrainas/shexd/cmd/add"
-	_ "github.com/danielkrainas/shexd/cmd/cache"
-	//_ "github.com/danielkrainas/shexd/cmd/export"
-	//_ "github.com/danielkrainas/shexd/cmd/install"
-	//_ "github.com/danielkrainas/shexd/cmd/list"
-	//_ "github.com/danielkrainas/shexd/cmd/remove"
-	"github.com/danielkrainas/shexd/cmd/root"
-	//_ "github.com/danielkrainas/shexd/cmd/set"
-	//_ "github.com/danielkrainas/shexd/cmd/sync"
-	//_ "github.com/danielkrainas/shexd/cmd/uninstall"
-	//_ "github.com/danielkrainas/shexd/cmd/use"
+	_ "github.com/danielkrainas/shexd/cmd/api"
+	"github.com/danielkrainas/shexd/cmd/registry"
 	_ "github.com/danielkrainas/shexd/cmd/version"
+	_ "github.com/danielkrainas/shexd/registry/storage/driver/inmemory"
 )
 
 var appVersion string
@@ -39,9 +27,9 @@ func main() {
 
 	rand.Seed(time.Now().Unix())
 	ctx := acontext.WithVersion(acontext.Background(), appVersion)
-	ctx = context.WithValue(ctx, "app.name", strings.Title(root.Info.Use))
+	ctx = context.WithValue(ctx, "app.name", strings.Title(registry.Info.Use))
 
-	dispatch := cmd.CreateDispatcher(ctx, root.Info)
+	dispatch := cmd.CreateDispatcher(ctx, registry.Info)
 	if err := dispatch(); err != nil {
 		log.Fatalln(err)
 	}
