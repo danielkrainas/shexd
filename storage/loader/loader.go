@@ -7,9 +7,9 @@ import (
 	cfg "github.com/danielkrainas/gobag/configuration"
 	"github.com/danielkrainas/gobag/context"
 
-	"github.com/danielkrainas/shexd/registry/configuration"
-	"github.com/danielkrainas/shexd/registry/storage"
-	"github.com/danielkrainas/shexd/registry/storage/driver/factory"
+	"github.com/danielkrainas/shexd/configuration"
+	"github.com/danielkrainas/shexd/storage"
+	"github.com/danielkrainas/shexd/storage/driver/factory"
 )
 
 var (

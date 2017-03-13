@@ -10,9 +10,9 @@ import (
 	"github.com/rs/cors"
 	"github.com/urfave/negroni"
 
+	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/server/handlers"
-	"github.com/danielkrainas/shexd/registry/actions"
-	"github.com/danielkrainas/shexd/registry/configuration"
+	"github.com/danielkrainas/shexd/configuration"
 )
 
 func New(ctx context.Context, config configuration.HTTPConfig, actionPack actions.Pack) (*Server, error) {

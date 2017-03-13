@@ -13,7 +13,7 @@ import (
 	_ "github.com/danielkrainas/shexd/cmd/api"
 	"github.com/danielkrainas/shexd/cmd/registry"
 	_ "github.com/danielkrainas/shexd/cmd/version"
-	_ "github.com/danielkrainas/shexd/registry/storage/driver/inmemory"
+	_ "github.com/danielkrainas/shexd/storage/driver/inmemory"
 )
 
 var appVersion string

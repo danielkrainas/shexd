@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/danielkrainas/shexd/api/v1"
-	"github.com/danielkrainas/shexd/registry/commands"
-	"github.com/danielkrainas/shexd/registry/queries"
-	"github.com/danielkrainas/shexd/registry/storage"
+	"github.com/danielkrainas/shexd/commands"
+	"github.com/danielkrainas/shexd/queries"
+	"github.com/danielkrainas/shexd/storage"
 )
 
 func DeleteMod(ctx context.Context, c *commands.DeleteMod, mods storage.ModStore) error {

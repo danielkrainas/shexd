@@ -10,10 +10,10 @@ import (
 	cfg "github.com/danielkrainas/gobag/configuration"
 	"github.com/danielkrainas/gobag/context"
 
+	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/server"
-	"github.com/danielkrainas/shexd/registry/actions"
-	"github.com/danielkrainas/shexd/registry/configuration"
-	storage "github.com/danielkrainas/shexd/registry/storage/loader"
+	"github.com/danielkrainas/shexd/configuration"
+	storage "github.com/danielkrainas/shexd/storage/loader"
 )
 
 func init() {

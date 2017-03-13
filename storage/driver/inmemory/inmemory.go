@@ -4,8 +4,8 @@ import (
 	"github.com/danielkrainas/gobag/decouple/drivers"
 
 	"github.com/danielkrainas/shexd/api/v1"
-	"github.com/danielkrainas/shexd/registry/storage"
-	"github.com/danielkrainas/shexd/registry/storage/driver/factory"
+	"github.com/danielkrainas/shexd/storage"
+	"github.com/danielkrainas/shexd/storage/driver/factory"
 )
 
 type driverFactory struct{}

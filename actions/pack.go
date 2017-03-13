@@ -5,11 +5,11 @@ import (
 
 	"github.com/danielkrainas/gobag/decouple/cqrs"
 
-	"github.com/danielkrainas/shexd/registry/commands"
-	"github.com/danielkrainas/shexd/registry/configuration"
-	"github.com/danielkrainas/shexd/registry/queries"
-	"github.com/danielkrainas/shexd/registry/storage"
-	"github.com/danielkrainas/shexd/registry/storage/loader"
+	"github.com/danielkrainas/shexd/commands"
+	"github.com/danielkrainas/shexd/configuration"
+	"github.com/danielkrainas/shexd/queries"
+	"github.com/danielkrainas/shexd/storage"
+	"github.com/danielkrainas/shexd/storage/loader"
 )
 
 type Pack interface {

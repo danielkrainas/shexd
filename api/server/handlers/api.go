@@ -6,8 +6,8 @@ import (
 	"github.com/danielkrainas/gobag/context"
 	"github.com/gorilla/mux"
 
+	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/v1"
-	"github.com/danielkrainas/shexd/registry/actions"
 )
 
 const ServerVersionHeader = "Shex-Registry-Version"

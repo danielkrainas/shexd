@@ -9,9 +9,9 @@ import (
 	"github.com/danielkrainas/gobag/context"
 	"github.com/danielkrainas/gobag/decouple/cqrs"
 
+	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/v1"
-	"github.com/danielkrainas/shexd/registry/actions"
-	"github.com/danielkrainas/shexd/registry/queries"
+	"github.com/danielkrainas/shexd/queries"
 )
 
 func Mods(actionPack actions.Pack) http.HandlerFunc {

@@ -5,7 +5,7 @@ import (
 	"sync"
 
 	"github.com/danielkrainas/shexd/api/v1"
-	"github.com/danielkrainas/shexd/registry/storage"
+	"github.com/danielkrainas/shexd/storage"
 )
 
 type modStore struct {
