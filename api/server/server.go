@@ -32,8 +32,8 @@ func New(ctx context.Context, config configuration.HTTPConfig, actionPack action
 		Debug:            config.Debug,
 	}))
 
-	n.UseFunc(handlers.Logging)
 	n.Use(handlers.Context(ctx))
+	n.UseFunc(handlers.Logging)
 	n.Use(&negroni.Recovery{
 		Logger:     negroni.ALogger(log),
 		PrintStack: true,
