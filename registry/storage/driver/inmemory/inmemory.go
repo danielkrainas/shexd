@@ -3,9 +3,9 @@ package inmemory
 import (
 	"github.com/danielkrainas/gobag/decouple/drivers"
 
-	"github.com/danielkrainas/shex/api/v1"
-	"github.com/danielkrainas/shex/registry/storage"
-	"github.com/danielkrainas/shex/registry/storage/driver/factory"
+	"github.com/danielkrainas/shexd/api/v1"
+	"github.com/danielkrainas/shexd/registry/storage"
+	"github.com/danielkrainas/shexd/registry/storage/driver/factory"
 )
 
 type driverFactory struct{}

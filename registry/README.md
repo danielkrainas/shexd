@@ -1,12 +1,12 @@
 # Shex Registry
 
-[![License](https://img.shields.io/badge/license-Unlicense-blue.svg?style=flat)](UNLICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/danielkrainas/shex/registry)](https://goreportcard.com/report/github.com/danielkrainas/shex/registry) [![Docker Hub](https://img.shields.io/docker/pulls/dakr/shexr.svg?style=flat)](https://hub.docker.com/r/dakr/shexr/)
+[![License](https://img.shields.io/badge/license-Unlicense-blue.svg?style=flat)](UNLICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/danielkrainas/shexd/registry)](https://goreportcard.com/report/github.com/danielkrainas/shexd/registry) [![Docker Hub](https://img.shields.io/docker/pulls/dakr/shexdr.svg?style=flat)](https://hub.docker.com/r/dakr/shexdr/)
 
 Shex Registry is a backend Shex API server implementation.
 
 ## Installation
 
-> $ go get github.com/danielkrainas/shex/registry
+> $ go get github.com/danielkrainas/shexd/registry
 
 ## Usage
 
@@ -79,7 +79,7 @@ storage: inmemory
 
 ## Bugs and Feedback
 
-If you see a bug or have a suggestion, feel free to open an issue [here](https://github.com/danielkrainas/shex/issues).
+If you see a bug or have a suggestion, feel free to open an issue [here](https://github.com/danielkrainas/shexd/issues).
 
 ## License
 

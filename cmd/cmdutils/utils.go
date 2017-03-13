@@ -5,8 +5,8 @@ import (
 
 	"github.com/danielkrainas/gobag/context"
 
-	"github.com/danielkrainas/shex/manager"
-	"github.com/danielkrainas/shex/utils/sysfs"
+	"github.com/danielkrainas/shexd/manager"
+	"github.com/danielkrainas/shexd/utils/sysfs"
 )
 
 func LoadManager(ctx context.Context) (manager.Manager, error) {

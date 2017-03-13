@@ -7,7 +7,7 @@ import (
 
 	"github.com/danielkrainas/gobag/cmd"
 
-	"github.com/danielkrainas/shex/manager"
+	"github.com/danielkrainas/shexd/manager"
 )
 
 func init() {

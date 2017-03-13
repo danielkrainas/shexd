@@ -3,10 +3,10 @@ package actions
 import (
 	"context"
 
-	"github.com/danielkrainas/shex/api/v1"
-	"github.com/danielkrainas/shex/registry/commands"
-	"github.com/danielkrainas/shex/registry/queries"
-	"github.com/danielkrainas/shex/registry/storage"
+	"github.com/danielkrainas/shexd/api/v1"
+	"github.com/danielkrainas/shexd/registry/commands"
+	"github.com/danielkrainas/shexd/registry/queries"
+	"github.com/danielkrainas/shexd/registry/storage"
 )
 
 func DeleteMod(ctx context.Context, c *commands.DeleteMod, mods storage.ModStore) error {

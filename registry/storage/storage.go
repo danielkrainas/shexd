@@ -5,7 +5,7 @@ import (
 
 	"github.com/danielkrainas/gobag/decouple/drivers"
 
-	"github.com/danielkrainas/shex/api/v1"
+	"github.com/danielkrainas/shexd/api/v1"
 )
 
 var ErrNotFound = errors.New("not found")

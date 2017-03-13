@@ -3,7 +3,7 @@ package factory
 import (
 	"github.com/danielkrainas/gobag/decouple/drivers"
 
-	"github.com/danielkrainas/shex/registry/storage"
+	"github.com/danielkrainas/shexd/registry/storage"
 )
 
 var registry = &drivers.Registry{

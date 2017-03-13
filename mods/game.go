@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/danielkrainas/shex/utils/sysfs"
+	"github.com/danielkrainas/shexd/utils/sysfs"
 )
 
 const DefaultGameManifestName = "shex.json"

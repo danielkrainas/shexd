@@ -12,11 +12,11 @@ Shex may be used as a standalone application or installed to make it more easily
 
 If you have Go install on your computer, you can use the `go get` command to 
 
-> $ go get github.com/danielkrainas/shex
+> $ go get github.com/danielkrainas/shexd
 
 ## Bugs and Feedback
 
-If you see a bug or have a suggestion, feel free to open an issue [here](https://github.com/danielkrainas/shex/issues).
+If you see a bug or have a suggestion, feel free to open an issue [here](https://github.com/danielkrainas/shexd/issues).
 
 ## Contributions
 

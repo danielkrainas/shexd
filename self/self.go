@@ -9,12 +9,12 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/danielkrainas/shex/fsutils"
+	"github.com/danielkrainas/shexd/fsutils"
 )
 
 var (
-	defaultInstallPath string = "/var/lib/shex"
-	symlinkPath        string = "/usr/local/bin/shex"
+	defaultInstallPath string = "/var/lib/shexd"
+	symlinkPath        string = "/usr/local/bin/shexd"
 )
 
 func createSymLink(shexPath string) error {

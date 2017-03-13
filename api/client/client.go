@@ -9,7 +9,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/danielkrainas/shex/api/v1"
+	"github.com/danielkrainas/shexd/api/v1"
 )
 
 const (

@@ -10,10 +10,10 @@ import (
 	"github.com/danielkrainas/gobag/cmd"
 	"github.com/danielkrainas/gobag/context"
 
-	_ "github.com/danielkrainas/shex/cmd/api"
-	"github.com/danielkrainas/shex/cmd/registry"
-	_ "github.com/danielkrainas/shex/cmd/version"
-	_ "github.com/danielkrainas/shex/registry/storage/driver/inmemory"
+	_ "github.com/danielkrainas/shexd/cmd/api"
+	"github.com/danielkrainas/shexd/cmd/registry"
+	_ "github.com/danielkrainas/shexd/cmd/version"
+	_ "github.com/danielkrainas/shexd/registry/storage/driver/inmemory"
 )
 
 var appVersion string

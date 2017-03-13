@@ -1,7 +1,7 @@
 package manager
 
 import (
-	"github.com/danielkrainas/shex/mods"
+	"github.com/danielkrainas/shexd/mods"
 )
 
 var (

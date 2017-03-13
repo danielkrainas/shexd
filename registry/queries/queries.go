@@ -1,7 +1,7 @@
 package queries
 
 import (
-	"github.com/danielkrainas/shex/api/v1"
+	"github.com/danielkrainas/shexd/api/v1"
 )
 
 type CountMods struct{}

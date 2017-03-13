@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/danielkrainas/shex/api/v1"
-	"github.com/danielkrainas/shex/registry/storage"
+	"github.com/danielkrainas/shexd/api/v1"
+	"github.com/danielkrainas/shexd/registry/storage"
 )
 
 type modStore struct {

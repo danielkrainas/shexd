@@ -6,7 +6,7 @@ import (
 
 	"github.com/danielkrainas/gobag/cmd"
 
-	"github.com/danielkrainas/shex/cmd/cmdutils"
+	"github.com/danielkrainas/shexd/cmd/cmdutils"
 )
 
 func init() {

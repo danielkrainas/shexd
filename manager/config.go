@@ -3,8 +3,8 @@ package manager
 import (
 	"path/filepath"
 
-	"github.com/danielkrainas/shex/mods"
-	"github.com/danielkrainas/shex/utils/sysfs"
+	"github.com/danielkrainas/shexd/mods"
+	"github.com/danielkrainas/shexd/utils/sysfs"
 )
 
 type Config struct {

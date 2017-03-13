@@ -8,9 +8,9 @@ import (
 
 	"github.com/danielkrainas/gobag/cmd"
 
-	"github.com/danielkrainas/shex/cmd/cmdutils"
-	"github.com/danielkrainas/shex/manager"
-	"github.com/danielkrainas/shex/mods"
+	"github.com/danielkrainas/shexd/cmd/cmdutils"
+	"github.com/danielkrainas/shexd/manager"
+	"github.com/danielkrainas/shexd/mods"
 )
 
 func init() {
