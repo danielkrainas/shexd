@@ -1,72 +1,91 @@
 package client
 
 import (
-	"fmt"
+	"bytes"
+	"encoding/json"
+	"io/ioutil"
 	"net/http"
-	"sync"
 
 	"github.com/danielkrainas/shexd/api/v1"
 )
 
-const CLIENT_USER_AGENT = "shex-client/1.0.0"
-
-type Client struct {
-	setup      sync.Once
-	urlBuilder *v1.URLBuilder
-	Endpoint   string
-	HTTPClient *http.Client
-	UserAgent  string
+type ModsApi interface {
+	SearchMods() ([]*v1.ModInfo, error)
+	CreateMod(m *v1.ModInfo) (*v1.ModInfo, error)
 }
 
-func New(endpoint string, httpClient *http.Client) *Client {
-	return &Client{
-		Endpoint:   endpoint,
-		HTTPClient: httpClient,
-		UserAgent:  CLIENT_USER_AGENT,
-	}
+type modsApi struct {
+	*Client
 }
 
-func (c *Client) urls() *v1.URLBuilder {
-	c.setup.Do(func() {
-		ub, err := v1.NewURLBuilderFromString(c.Endpoint, false)
-		if err != nil {
-			panic(fmt.Sprintf("error creating v1 url builder: %v", err))
-		}
-
-		c.urlBuilder = ub
-	})
-
-	return c.urlBuilder
+func (c *Client) Mods() ModsApi {
+	return &modsApi{c}
 }
 
-func (c *Client) Ping() error {
-	destUrl, err := c.urls().BuildBaseURL()
+func (api *modsApi) SearchMods() ([]*v1.ModInfo, error) {
+	url, err := api.urls().BuildModsRegistry()
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	r, err := http.NewRequest(http.MethodGet, destUrl, nil)
+	r, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	resp, err := c.do(r)
+	resp, err := api.do(r)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("unexpected status returned: %s", resp.Status)
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
 	}
 
-	return nil
+	p := make([]*v1.ModInfo, 0)
+	if err = json.Unmarshal(body, &p); err != nil {
+		return nil, err
+	}
+
+	return p, nil
 }
 
-func (c *Client) do(r *http.Request) (*http.Response, error) {
-	r.Header.Add("USER-AGENT", c.UserAgent)
+func (api *modsApi) CreateMod(m *v1.ModInfo) (*v1.ModInfo, error) {
+	body, err := json.Marshal(&m)
+	if err != nil {
+		return nil, err
+	}
 
-	return c.HTTPClient.Do(r)
+	url, err := api.urls().BuildModsRegistry()
+	if err != nil {
+		return nil, err
+	}
+
+	r, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(body))
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := api.do(r)
+	if err != nil {
+		return nil, err
+	}
+
+	defer resp.Body.Close()
+	body, err = ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	m = &v1.ModInfo{}
+	if err = json.Unmarshal(body, m); err != nil {
+		return nil, err
+	}
+
+	return m, nil
 }
 
 /*
