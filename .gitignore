@@ -1,0 +1,7 @@
+.godeps
+server/node_modules
+dist
+shex*
+update
+registry/registry*
+registry/config.local.yml

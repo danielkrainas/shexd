@@ -1,0 +1,18 @@
+version: 1.0
+
+log:
+  level: info
+  formatter: text
+#  fields:
+#    custom_field1: 'value'
+
+http:
+  debug: false
+  addr: ':9366'
+  host: localhost
+  cors:
+    origins: ['*']
+    methods: ['*']
+    headers: ['*']
+
+storage: inmemory

@@ -1,0 +1,7 @@
+{
+	"id": "demo",
+	"name": "Demo Profile",
+	"mods": {
+		"candyland2": "1.0.0"
+	}
+}
