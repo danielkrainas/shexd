@@ -59,7 +59,7 @@ func Parse(rd io.Reader) (*Config, error) {
 		return nil, err
 	}
 
-	p := cfg.NewParser("shexr", []cfg.VersionedParseInfo{
+	p := cfg.NewParser("shexd", []cfg.VersionedParseInfo{
 		{
 			Version: cfg.MajorMinorVersion(1, 0),
 			ParseAs: reflect.TypeOf(v1_0Config{}),

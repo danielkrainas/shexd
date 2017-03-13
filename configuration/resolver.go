@@ -11,7 +11,7 @@ func Resolve(args []string) (*Config, error) {
 	if len(args) > 0 {
 		configPath = args[0]
 	} else {
-		configPath = os.Getenv("SHEXR_CONFIG_PATH")
+		configPath = os.Getenv("SHEXD_CONFIG_PATH")
 	}
 
 	if configPath == "" {
