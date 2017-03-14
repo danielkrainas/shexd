@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/danielkrainas/shexd/api/client"
-	"github.com/danielkrainas/shexd/api/v1"
 )
 
 func main() {
