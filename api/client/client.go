@@ -8,7 +8,7 @@ import (
 	"github.com/danielkrainas/shexd/api/v1"
 )
 
-const CLIENT_USER_AGENT = "shex-client/1.0.0"
+const CLIENT_USER_AGENT = "shexd-client/1.0.0"
 
 type Client struct {
 	setup      sync.Once
