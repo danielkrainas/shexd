@@ -39,3 +39,8 @@ func main() {
 	}
 }
 ```
+	
+## Example
+
+A more detailed example can be found [here.](https://github.com/danielkrainas/shexd/tree/master/api/client/example)
+
