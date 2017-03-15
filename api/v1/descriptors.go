@@ -61,6 +61,23 @@ var (
 		semversion: ...
 	}, ...
 ]`)
+
+	profileBody = strings.TrimSpace(`
+{
+	name: ...,
+	rev: ...,
+	mods: { "mod1": ... }
+}
+`)
+
+	profileListBody = strings.TrimSpace(`
+[
+	{
+		name: ...,
+		rev: ...,
+		mods: { "mod1": ... }
+	}, ...
+]`)
 )
 
 var API = struct {
@@ -159,6 +176,68 @@ var routeDescriptors = []describe.Route{
 								Body: describe.Body{
 									ContentType: "application/json; charset=utf-8",
 									Format:      modBody,
+								},
+							},
+						},
+
+						Failures: []describe.Response{},
+					},
+				},
+			},
+		},
+	},
+	{
+		Name:        RouteNameProfiles,
+		Path:        "/v1/profiles",
+		Entity:      "[]RemoteProfile",
+		Description: "Route to retrieve the list of profiles and create new ones.",
+		Methods: []describe.Method{
+			{
+				Method:      "GET",
+				Description: "Get all profiles",
+				Requests: []describe.Request{
+					{
+						Headers: []describe.Parameter{
+							hostHeader,
+						},
+
+						Successes: []describe.Response{
+							{
+								Description: "All profiles returned",
+								StatusCode:  http.StatusOK,
+								Headers: append([]describe.Parameter{
+									jsonContentLengthHeader,
+								}, versionHeaders...),
+
+								Body: describe.Body{
+									ContentType: "application/json; charset=utf-8",
+									Format:      profileListBody,
+								},
+							},
+						},
+					},
+				},
+			},
+			{
+				Method:      "POST",
+				Description: "Publish a profile to the repository.",
+				Requests: []describe.Request{
+					{
+						Headers: []describe.Parameter{
+							hostHeader,
+						},
+
+						Successes: []describe.Response{
+							{
+								Description: "Profile published.",
+								StatusCode:  http.StatusCreated,
+								Headers: append([]describe.Parameter{
+									jsonContentLengthHeader,
+								}, versionHeaders...),
+
+								Body: describe.Body{
+									ContentType: "application/json; charset=utf-8",
+									Format:      profileBody,
 								},
 							},
 						},
