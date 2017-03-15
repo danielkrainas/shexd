@@ -25,6 +25,7 @@ func NewApi(actionPack actions.Pack) (*Api, error) {
 
 	api.register(v1.RouteNameBase, Base)
 	api.register(v1.RouteNameMods, Mods(actionPack))
+	api.register(v1.RouteNameProfiles, Profiles(actionPack))
 
 	return api, nil
 }
