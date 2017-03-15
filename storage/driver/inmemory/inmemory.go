@@ -25,13 +25,13 @@ type driver struct {
 }
 
 func (d *driver) Mods() storage.ModStore {
-	store, ok := d.stores[" mod"].(storage.ModStore)
+	store, ok := d.stores["mod"].(storage.ModStore)
 	if !ok {
 		store = &modStore{
 			mods: make([]*v1.ModInfo, 0),
 		}
 
-		d.stores[" mod"] = store
+		d.stores["mod"] = store
 	}
 
 	return store
