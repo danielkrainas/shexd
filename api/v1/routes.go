@@ -3,8 +3,9 @@ package v1
 import "github.com/gorilla/mux"
 
 const (
-	RouteNameBase = "base"
-	RouteNameMods = "mods"
+	RouteNameBase     = "base"
+	RouteNameMods     = "mods"
+	RouteNameProfiles = "profiles"
 )
 
 func Router() *mux.Router {
