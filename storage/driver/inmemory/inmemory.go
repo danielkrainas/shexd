@@ -36,3 +36,16 @@ func (d *driver) Mods() storage.ModStore {
 
 	return store
 }
+
+func (d *driver) Mods() storage.ModStore {
+	store, ok := d.stores["profiles"].(storage.ModStore)
+	if !ok {
+		store = &modStore{
+			mods: make([]*v1.ModInfo, 0),
+		}
+
+		d.stores["profiles"] = store
+	}
+
+	return store
+}
