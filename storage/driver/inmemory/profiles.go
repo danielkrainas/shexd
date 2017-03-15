@@ -1,7 +1,6 @@
 package inmemory
 
 import (
-	"fmt"
 	"sync"
 
 	"github.com/danielkrainas/shexd/api/v1"
