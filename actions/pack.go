@@ -29,6 +29,8 @@ func (p *pack) Execute(ctx context.Context, q cqrs.Query) (interface{}, error) {
 		return CountMods(ctx, q, p.store.Mods())
 	case *queries.SearchMods:
 		return SearchMods(ctx, q, p.store.Mods())
+	case *queries.SearchProfiles:
+		return SearchProfiles(ctx, q, p.store.Profiles())
 	}
 
 	return nil, cqrs.ErrNoExecutor

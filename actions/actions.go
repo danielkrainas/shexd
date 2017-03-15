@@ -34,3 +34,7 @@ func StoreProfile(ctx context.Context, c *commands.StoreProfile, profiles storag
 	p := c.Profile
 	return profiles.Store(p, c.New)
 }
+
+func SearchProfiles(ctx context.Context, q *queries.SearchProfiles, profiles storage.ProfileStore) ([]*v1.RemoteProfile, error) {
+	return profiles.FindMany(&storage.ProfileFilters{})
+}
