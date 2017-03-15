@@ -29,3 +29,8 @@ func CountMods(ctx context.Context, q *queries.CountMods, mods storage.ModStore)
 func SearchMods(ctx context.Context, q *queries.SearchMods, mods storage.ModStore) ([]*v1.ModInfo, error) {
 	return mods.FindMany(&storage.ModFilters{})
 }
+
+func StoreProfile(ctx context.Context, c *commands.StoreProfile, profiles storage.ProfileStore) error {
+	p := c.Profile
+	return profiles.Store(p, c.New)
+}

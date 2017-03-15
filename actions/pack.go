@@ -40,6 +40,8 @@ func (p *pack) Handle(ctx context.Context, c cqrs.Command) error {
 		return DeleteMod(ctx, c, p.store.Mods())
 	case *commands.StoreMod:
 		return StoreMod(ctx, c, p.store.Mods())
+	case *commands.StoreProfile:
+		return StoreProfile(ctx, c, p.store.Profiles())
 	}
 
 	return cqrs.ErrNoHandler
