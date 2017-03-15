@@ -54,7 +54,7 @@ func (api *profilesApi) SearchProfiles() ([]*v1.RemoteProfile, error) {
 }
 
 func (api *profilesApi) CreateProfile(p *v1.RemoteProfile) (*v1.RemoteProfile, error) {
-	body, err := json.Marshal(&p)
+	body, err := json.Marshal(p)
 	if err != nil {
 		return nil, err
 	}
