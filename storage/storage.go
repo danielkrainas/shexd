@@ -31,3 +31,5 @@ type ProfileStore interface {
 	Store(p *v1.RemoteProfile, isNew bool) error
 	FindMany(f *ProfileFilters) ([]*v1.RemoteProfile, error)
 }
+
+type ProfileFilters struct{}
