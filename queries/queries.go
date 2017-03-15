@@ -11,3 +11,5 @@ type FindMod struct {
 }
 
 type SearchMods struct{}
+
+type SearchProfiles struct{}
