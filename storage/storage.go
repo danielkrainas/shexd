@@ -14,6 +14,7 @@ type Driver interface {
 	drivers.DriverBase
 
 	Mods() ModStore
+	Profiles() ProfileStore
 }
 
 type ModStore interface {
@@ -25,3 +26,8 @@ type ModStore interface {
 }
 
 type ModFilters struct{}
+
+type ProfileStore interface {
+	Store(p *v1.RemoteProfile, isNew bool) error
+	FindMany(f *ProfileFilters) ([]*v1.RemoteProfile, error)
+}
