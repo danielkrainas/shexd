@@ -91,6 +91,17 @@ func (ub *URLBuilder) BuildModsRegistry() (string, error) {
 	return routeUrl.String(), nil
 }
 
+func (ub *URLBuilder) BuildProfilesRegistry() (string, error) {
+	route := ub.cloneRoute(RouteNameProfiles)
+
+	routeUrl, err := route.URL()
+	if err != nil {
+		return "", err
+	}
+
+	return routeUrl.String(), nil
+}
+
 type clonedRoute struct {
 	*mux.Route
 
