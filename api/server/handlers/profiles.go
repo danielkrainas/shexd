@@ -11,6 +11,7 @@ import (
 
 	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/v1"
+	"github.com/danielkrainas/shexd/commands"
 	"github.com/danielkrainas/shexd/queries"
 )
 
