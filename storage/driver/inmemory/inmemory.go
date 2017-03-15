@@ -41,7 +41,7 @@ func (d *driver) Profiles() storage.ProfileStore {
 	store, ok := d.stores["profiles"].(storage.ProfileStore)
 	if !ok {
 		store = &profileStore{
-			profiles: make([]*v1.ModInfo, 0),
+			profiles: make([]*v1.RemoteProfile, 0),
 		}
 
 		d.stores["profiles"] = store
