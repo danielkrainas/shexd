@@ -5,6 +5,7 @@ Client library for the Shex API.
 Supported Endpoints:
 
 - Mods
+- Profiles
 
 
 ## Installation
