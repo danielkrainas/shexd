@@ -37,11 +37,11 @@ func (d *driver) Mods() storage.ModStore {
 	return store
 }
 
-func (d *driver) Mods() storage.ModStore {
-	store, ok := d.stores["profiles"].(storage.ModStore)
+func (d *driver) Profiles() storage.ProfileStore {
+	store, ok := d.stores["profiles"].(storage.ProfileStore)
 	if !ok {
-		store = &modStore{
-			mods: make([]*v1.ModInfo, 0),
+		store = &profileStore{
+			profiles: make([]*v1.ModInfo, 0),
 		}
 
 		d.stores["profiles"] = store
