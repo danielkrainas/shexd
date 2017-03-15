@@ -53,7 +53,7 @@ func PublishProfile(c cqrs.CommandHandler, w http.ResponseWriter, r *http.Reques
 	}
 
 	log.Infof("profile published %q", rp.Name)
-	if err := v1.ServeJSON(w, m); err != nil {
+	if err := v1.ServeJSON(w, rp); err != nil {
 		log.Errorf("error sending user json: %v", err)
 	}
 }
