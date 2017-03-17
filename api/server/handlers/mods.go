@@ -30,6 +30,7 @@ func ModMetadata(q cqrs.QueryExecutor) http.HandlerFunc {
 			return
 		}
 
+		ctx := r.Context()
 		query := &queries.FindMod{Token: tokenFromRoute(r)}
 		info, err := q.Execute(ctx, query)
 		if err != nil {
