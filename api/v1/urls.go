@@ -80,7 +80,7 @@ func (ub *URLBuilder) BuildBaseURL() (string, error) {
 	return baseURL.String(), nil
 }
 
-func (ub *URLBuilder) BuildModVersions(partialToken *v1.NameVersionToken) (string, error) {
+func (ub *URLBuilder) BuildModVersions(partialToken *NameVersionToken) (string, error) {
 	route := ub.cloneRoute(RouteNameModVersions)
 	routeUrl, err := route.URL("namespace", partialToken.Namespace, "mod", partialToken.Name)
 	if err != nil {
