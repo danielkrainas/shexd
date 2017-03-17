@@ -4,6 +4,8 @@ import (
 	"strings"
 )
 
+const RootNamespace = "_"
+
 const (
 	SOURCE_REMOTE = "remote"
 	SOURCE_NONE   = ""
@@ -88,8 +90,9 @@ func (l ModList) Drop(name string) {
 }
 
 type NameVersionToken struct {
-	Name    string
-	Version string
+	Name      string
+	Namespace string
+	Version   string
 }
 
 func (t *NameVersionToken) Constraint() string {
@@ -110,14 +113,13 @@ func ParseNameVersionToken(pair string) *NameVersionToken {
 		token.Version = "latest"
 	}
 
-	return token
-}
-
-func TokenNamespace(t *NameVersionToken) string {
-	parts := strings.Split(t.Name, "/")
-	if len(parts) == 1 {
-		return "_"
+	parts = strings.Split(token.Name, "/")
+	if len(parts) > 1 {
+		token.Namespace = parts[0]
+		token.Name = parts[1]
+	} else {
+		token.Namespace = RootNamespace
 	}
 
-	return parts[0]
+	return token
 }

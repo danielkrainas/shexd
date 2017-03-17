@@ -92,7 +92,7 @@ func (ub *URLBuilder) BuildModVersions(partialToken *NameVersionToken) (string, 
 
 func (ub *URLBuilder) BuildModVersionMeta(t *NameVersionToken) (string, error) {
 	route := ub.cloneRoute(RouteNameMods)
-	routeUrl, err := route.URL("namespace", TokenNamespace(t), "mod", t.Name, "version", t.Version)
+	routeUrl, err := route.URL("namespace", t.Namespace, "mod", t.Name, "version", t.Version)
 	if err != nil {
 		return "", err
 	}
