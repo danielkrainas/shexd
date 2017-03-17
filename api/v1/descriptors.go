@@ -187,6 +187,40 @@ var routeDescriptors = []describe.Route{
 		},
 	},
 	{
+		Name:        RouteNameModVersionMeta,
+		Path:        "/v1/mods/{namespace}/{mod}/v/{version}/meta",
+		Entity:      "ModInfo",
+		Description: "Route to retrieve mod metadata by version.",
+		Methods: []describe.Method{
+			{
+				Method:      "GET",
+				Description: "Get mod metadata by version.",
+				Requests: []describe.Request{
+					{
+						Headers: []describe.Parameter{
+							hostHeader,
+						},
+
+						Successes: []describe.Response{
+							{
+								Description: "Mod info returned",
+								StatusCode:  http.StatusOK,
+								Headers: append([]describe.Parameter{
+									jsonContentLengthHeader,
+								}, versionHeaders...),
+
+								Body: describe.Body{
+									ContentType: "application/json; charset=utf-8",
+									Format:      modBody,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	{
 		Name:        RouteNameProfiles,
 		Path:        "/v1/profiles",
 		Entity:      "[]RemoteProfile",
