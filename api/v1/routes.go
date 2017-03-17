@@ -7,6 +7,7 @@ const (
 	RouteNameMods           = "mods"
 	RouteNameProfiles       = "profiles"
 	RouteNameModVersionMeta = "mod-version-meta"
+	RouteNameModVersions    = "mod-version"
 )
 
 func Router() *mux.Router {
