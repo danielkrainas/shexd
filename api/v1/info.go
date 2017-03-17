@@ -70,6 +70,7 @@ type RemoteModInfo struct {
 type ModInfo struct {
 	Source     string `json:"-"`
 	Name       string `json:"name"`
+	Namespace  string `json:"namespace"`
 	Version    int32  `json:"version"`
 	SemVersion string `json:"semversion"`
 }

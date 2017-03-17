@@ -38,3 +38,7 @@ func StoreProfile(ctx context.Context, c *commands.StoreProfile, profiles storag
 func SearchProfiles(ctx context.Context, q *queries.SearchProfiles, profiles storage.ProfileStore) ([]*v1.RemoteProfile, error) {
 	return profiles.FindMany(&storage.ProfileFilters{})
 }
+
+func GetModVersionList(ctx context.Context, q *queries.GetModVersionList, mods storage.ModStore) ([]string, error) {
+	return mods.Versions(q.Token)
+}

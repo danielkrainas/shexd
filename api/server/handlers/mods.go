@@ -24,6 +24,28 @@ func tokenFromRoute(r *http.Request) *v1.NameVersionToken {
 	}
 }
 
+func ModVersions(q cqrs.QueryExecutor) http.HandlerFunc {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.NotFound(w, r)
+			return
+		}
+
+		ctx := r.Context()
+		query := &queries.GetModVersionList{Token: tokenFromRoute(r)}
+		versions, err := q.Execute(ctx, query)
+		if err != nil {
+			acontext.GetLogger(ctx).Error(err)
+			acontext.TrackError(ctx, err)
+			return
+		}
+
+		if err := v1.ServeJSON(w, versions); err != nil {
+			acontext.GetLogger(ctx).Errorf("error sending mod version list json: %v", err)
+		}
+	})
+}
+
 func ModMetadata(q cqrs.QueryExecutor) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {

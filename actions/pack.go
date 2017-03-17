@@ -25,6 +25,8 @@ func (p *pack) Execute(ctx context.Context, q cqrs.Query) (interface{}, error) {
 	switch q := q.(type) {
 	case *queries.FindMod:
 		return FindMod(ctx, q, p.store.Mods())
+	case *queries.GetModVersionList:
+		return GetModVersionList(ctx, q, p.store.Mods())
 	case *queries.CountMods:
 		return CountMods(ctx, q, p.store.Mods())
 	case *queries.SearchMods:

@@ -23,6 +23,7 @@ type ModStore interface {
 	Find(token *v1.NameVersionToken) (*v1.ModInfo, error)
 	FindMany(f *ModFilters) ([]*v1.ModInfo, error)
 	Count(f *ModFilters) (int, error)
+	Versions(token *v1.NameVersionToken) ([]string, error)
 }
 
 type ModFilters struct{}

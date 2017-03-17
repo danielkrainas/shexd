@@ -27,6 +27,7 @@ func NewApi(actionPack actions.Pack) (*Api, error) {
 	api.register(v1.RouteNameMods, Mods(actionPack))
 	api.register(v1.RouteNameModVersionMeta, ModMetadata(actionPack))
 	api.register(v1.RouteNameProfiles, Profiles(actionPack))
+	api.register(v1.RouteNameModVersions, ModVersions(actionPack))
 
 	return api, nil
 }
