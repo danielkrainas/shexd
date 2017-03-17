@@ -10,7 +10,7 @@ import (
 )
 
 type ModsApi interface {
-	SearchMods() ([]*v1.ModInfo, error)
+	//SearchMods() ([]*v1.ModInfo, error)
 	CreateMod(m *v1.ModInfo) (*v1.ModInfo, error)
 }
 
@@ -22,7 +22,7 @@ func (c *Client) Mods() ModsApi {
 	return &modsApi{c}
 }
 
-func (api *modsApi) SearchMods() ([]*v1.ModInfo, error) {
+/*func (api *modsApi) SearchMods() ([]*v1.ModInfo, error) {
 	url, err := api.urls().BuildModsRegistry()
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (api *modsApi) SearchMods() ([]*v1.ModInfo, error) {
 	}
 
 	return p, nil
-}
+}*/
 
 func (api *modsApi) CreateMod(m *v1.ModInfo) (*v1.ModInfo, error) {
 	body, err := json.Marshal(&m)
