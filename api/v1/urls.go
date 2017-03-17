@@ -80,6 +80,16 @@ func (ub *URLBuilder) BuildBaseURL() (string, error) {
 	return baseURL.String(), nil
 }
 
+func (ub *URLBuilder) BuildModVersionMeta(t *NameVersionToken) (string, error) {
+	route := ub.cloneRoute(RouteNameMods)
+	routeUrl, err := route.URL("namespace", TokenNamespace(t), "mod", t.Name, "version", t.Version)
+	if err != nil {
+		return "", err
+	}
+
+	return routeUrl.String(), nil
+}
+
 func (ub *URLBuilder) BuildModsRegistry() (string, error) {
 	route := ub.cloneRoute(RouteNameMods)
 
