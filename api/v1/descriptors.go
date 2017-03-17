@@ -78,6 +78,15 @@ var (
 		mods: { "mod1": ... }
 	}, ...
 ]`)
+
+	versionListBody = strings.TrimSpace(`
+[
+	"1.0.0",
+	"1.2.0",
+	"1.2.1",
+	"1.3.0-alpha",
+	...
+]`)
 )
 
 var API = struct {
@@ -186,6 +195,40 @@ var routeDescriptors = []describe.Route{
 								Body: describe.Body{
 									ContentType: "application/json; charset=utf-8",
 									Format:      modBody,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+	{
+		Name:        RouteNameModVersions,
+		Path:        "/v1/mods/{namespace}/{mod}/v",
+		Entity:      "[]String",
+		Description: "Route to retrieve available versions for a mod.",
+		Methods: []describe.Method{
+			{
+				Method:      "GET",
+				Description: "Get list of versions.",
+				Requests: []describe.Request{
+					{
+						Headers: []describe.Parameter{
+							hostHeader,
+						},
+
+						Successes: []describe.Response{
+							{
+								Description: "Version list returned",
+								StatusCode:  http.StatusOK,
+								Headers: append([]describe.Parameter{
+									jsonContentLengthHeader,
+								}, versionHeaders...),
+
+								Body: describe.Body{
+									ContentType: "application/json; charset=utf-8",
+									Format:      versionListBody,
 								},
 							},
 						},
