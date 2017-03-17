@@ -8,11 +8,41 @@ import (
 	"github.com/danielkrainas/gobag/api/errcode"
 	"github.com/danielkrainas/gobag/context"
 	"github.com/danielkrainas/gobag/decouple/cqrs"
+	"github.com/gorilla/mux"
 
 	"github.com/danielkrainas/shexd/actions"
 	"github.com/danielkrainas/shexd/api/v1"
 	"github.com/danielkrainas/shexd/queries"
 )
+
+func tokenFromRoute(r *http.Request) *v1.NameVersionToken {
+	vars := mux.Vars(r)
+	return &v1.NameVersionToken{
+		Name:    vars["mod"],
+		Version: vars["version"],
+	}
+}
+
+func ModMetadata(q cqrs.QueryExecutor) http.HandlerFunc {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.NotFound(w, r)
+			return
+		}
+
+		query := &queries.FindMod{Token: tokenFromRoute(r)}
+		info, err := q.Execute(ctx, query)
+		if err != nil {
+			acontext.GetLogger(ctx).Error(err)
+			acontext.TrackError(ctx, err)
+			return
+		}
+
+		if err := v1.ServeJSON(w, info); err != nil {
+			acontext.GetLogger(ctx).Errorf("error sending mod info json: %v", err)
+		}
+	})
+}
 
 func Mods(actionPack actions.Pack) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
