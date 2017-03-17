@@ -10,6 +10,10 @@ type FindMod struct {
 	Token *v1.NameVersionToken
 }
 
+type GetModVersionList struct {
+	Token *v1.NameVersionToken
+}
+
 type SearchMods struct{}
 
 type SearchProfiles struct{}
