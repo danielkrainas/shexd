@@ -112,3 +112,12 @@ func ParseNameVersionToken(pair string) *NameVersionToken {
 
 	return token
 }
+
+func TokenNamespace(t *NameVersionToken) string {
+	parts := strings.Split(t.Name, "/")
+	if len(parts) == 1 {
+		return "_"
+	}
+
+	return parts[0]
+}
