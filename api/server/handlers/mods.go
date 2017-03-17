@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -18,7 +19,7 @@ import (
 func tokenFromRoute(r *http.Request) *v1.NameVersionToken {
 	vars := mux.Vars(r)
 	return &v1.NameVersionToken{
-		Name:    vars["mod"],
+		Name:    fmt.Sprintf("%s/%s", vars["namespace"], vars["mod"]),
 		Version: vars["version"],
 	}
 }
