@@ -12,6 +12,7 @@ import (
 type ModsApi interface {
 	//SearchMods() ([]*v1.ModInfo, error)
 	CreateMod(m *v1.ModInfo) (*v1.ModInfo, error)
+	GetModInfo(t *v1.NameVersionToken) (*v1.ModInfo, error)
 }
 
 type modsApi struct {
@@ -20,6 +21,37 @@ type modsApi struct {
 
 func (c *Client) Mods() ModsApi {
 	return &modsApi{c}
+}
+
+func (api *modsApi) GetModInfo(t *v1.NameVersionToken) (*v1.ModInfo, error) {
+	url, err := api.urls().BuildModVersionMeta(t)
+	if err != nil {
+		return nil, err
+	}
+
+	r, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := api.do(r)
+	if err != nil {
+		return nil, err
+	}
+
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	m := &v1.ModInfo{}
+	if err = json.Unmarshal(body, m); err != nil {
+		return nil, err
+	}
+
+	return m, nil
 }
 
 /*func (api *modsApi) SearchMods() ([]*v1.ModInfo, error) {
