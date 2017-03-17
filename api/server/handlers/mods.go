@@ -19,8 +19,6 @@ func Mods(actionPack actions.Pack) http.HandlerFunc {
 		switch r.Method {
 		case http.MethodPost:
 			CreateMod(actionPack, w, r)
-		case http.MethodGet:
-			SearchMods(actionPack, w, r)
 		default:
 			http.NotFound(w, r)
 		}

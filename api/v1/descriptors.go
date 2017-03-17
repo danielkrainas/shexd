@@ -131,32 +131,6 @@ var routeDescriptors = []describe.Route{
 		Description: "Route to retrieve the list of mods and create new ones.",
 		Methods: []describe.Method{
 			{
-				Method:      "GET",
-				Description: "Get all mods",
-				Requests: []describe.Request{
-					{
-						Headers: []describe.Parameter{
-							hostHeader,
-						},
-
-						Successes: []describe.Response{
-							{
-								Description: "All posts returned",
-								StatusCode:  http.StatusOK,
-								Headers: append([]describe.Parameter{
-									jsonContentLengthHeader,
-								}, versionHeaders...),
-
-								Body: describe.Body{
-									ContentType: "application/json; charset=utf-8",
-									Format:      modListBody,
-								},
-							},
-						},
-					},
-				},
-			},
-			{
 				Method:      "POST",
 				Description: "Upload a mod to the repository.",
 				Requests: []describe.Request{
