@@ -12,7 +12,6 @@ import (
 var (
 	versionHeaders = []describe.Parameter{
 		{
-
 			Name:        "Shex-Registry-Version",
 			Type:        "string",
 			Description: "The build version of the Shex registry server.",
