@@ -2,7 +2,6 @@ package storageloader
 
 import (
 	"context"
-	"errors"
 
 	cfg "github.com/danielkrainas/gobag/configuration"
 	"github.com/danielkrainas/gobag/context"
