@@ -12,10 +12,6 @@ import (
 	"github.com/danielkrainas/shexd/storage/driver/factory"
 )
 
-var (
-	ErrNotFound = errors.New("not found")
-)
-
 func FromConfig(config *configuration.Config) (storage.Driver, error) {
 	params := config.Storage.Parameters()
 	if params == nil {
