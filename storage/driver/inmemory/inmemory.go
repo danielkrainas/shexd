@@ -20,31 +20,36 @@ func init() {
 	factory.Register("inmemory", &driverFactory{})
 }
 
+const (
+	modStoreKey     = "mods"
+	profileStoreKey = "profiles"
+)
+
 type driver struct {
 	stores map[string]interface{}
 }
 
 func (d *driver) Mods() storage.ModStore {
-	store, ok := d.stores["mod"].(storage.ModStore)
+	store, ok := d.stores[modStoreKey].(storage.ModStore)
 	if !ok {
 		store = &modStore{
 			mods: make([]*v1.ModInfo, 0),
 		}
 
-		d.stores["mod"] = store
+		d.stores[modStoreKey] = store
 	}
 
 	return store
 }
 
 func (d *driver) Profiles() storage.ProfileStore {
-	store, ok := d.stores["profiles"].(storage.ProfileStore)
+	store, ok := d.stores[profileStoreKey].(storage.ProfileStore)
 	if !ok {
 		store = &profileStore{
 			profiles: make([]*v1.RemoteProfile, 0),
 		}
 
-		d.stores["profiles"] = store
+		d.stores[profileStoreKey] = store
 	}
 
 	return store
